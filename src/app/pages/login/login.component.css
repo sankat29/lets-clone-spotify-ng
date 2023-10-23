@@ -1,0 +1,61 @@
+.login__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 670px;
+  gap: 10px;
+}
+
+input[type="text"],
+input[type="password"] {
+  padding: 10px;
+  border: none;
+  border: 1px solid rgb(45, 44, 44);
+  border-radius: 4px;
+  width: 400px;
+  height: 50px;
+}
+
+input::placeholder {
+  color: rgb(45, 44, 44);
+}
+
+hr {
+  width: 100%;
+  border: 1px solid black;
+}
+
+#remember_me {
+  margin-left: 4px;
+  height: 20px;
+  background-color: #1ed760;
+  width: 15px;
+}
+
+.login__btn {
+  background-color: #1ed760;
+  color: black;
+  padding: 14px;
+  border-radius: 28px;
+  width: 150px;
+  border: none;
+  font-weight: bold;
+}
+
+.signup_btn {
+  background-color: white;
+  color: gray;
+  padding: 14px;
+  border-radius: 28px;
+  border: 2px solid gray;
+  font-weight: bold;
+}
+
+.action_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 412px;
+}

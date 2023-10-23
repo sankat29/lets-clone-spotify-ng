@@ -1,0 +1,91 @@
+<div class="spotify__home-container row">
+  <div class="spotify__home-container_side-bar col-2">
+    <div class="spotify__home-container_side-bar-item">
+      <img
+        width="150"
+        class="m-3 text-left"
+        src="assets/spotify_light.png"
+        alt="spotify light logo"
+      />
+    </div>
+    <div
+      class="spotify__home-container_side-bar-item"
+      (click)="onNavigation('home')"
+    >
+      <a>Home</a>
+    </div>
+    <div
+      class="spotify__home-container_side-bar-item"
+      (click)="onNavigation('search')"
+    >
+      <a>Search</a>
+    </div>
+    <div
+      class="spotify__home-container_side-bar-item"
+      (click)="onNavigation('library')"
+    >
+      <a>Your Library</a>
+    </div>
+    <div
+      class="spotify__home-container_side-bar-item"
+      (click)="onNavigation('playlist')"
+    >
+      <a>Create Playlist</a>
+    </div>
+  </div>
+  <div class="spotify__home-container_playlist-container col-10">
+    <app-top-nav (inputFilterRes)="onInputFilterRes($event)"></app-top-nav>
+    <div
+      [style.paddingTop]="'48px'"
+      class="mt-5 container-fluid"
+      *ngIf="!(sb.isSearchVisible | async)"
+    >
+      <h4 [style.color]="'white'" [style.padding]="'10px'">Focus</h4>
+      <div class="playlist_card_collections">
+        <div id="song_card_item" *ngFor="let sc of songCards">
+          <app-song-card
+            [playlistThumbnail]="sc.thumbnail"
+            [title]="sc.title"
+            [description]="sc.description"
+            [song_id]="sc.song_id"
+            [link]="sc.song_link"
+          ></app-song-card>
+        </div>
+      </div>
+    </div>
+    <div
+      [style.paddingTop]="'250px'"
+      class="mt-5 container-fluid"
+      *ngIf="!(sb.isSearchVisible | async)"
+    >
+      <h4 [style.color]="'white'" [style.padding]="'10px'">
+        Spotify Playlists
+      </h4>
+      <div class="playlist_card_collections">
+        <div id="song_card_item" *ngFor="let sc of songCards">
+          <app-song-card
+            [playlistThumbnail]="sc.thumbnail"
+            [title]="sc.title"
+            [description]="sc.description"
+            [song_id]="sc.song_id"
+          ></app-song-card>
+        </div>
+      </div>
+    </div>
+    <div
+      [style.paddingTop]="'48px'"
+      class="mt-5 container-fluid"
+      *ngIf="sb.isSearchVisible | async"
+    >
+      <h4 [style.color]="'white'" [style.padding]="'10px'">Browse All</h4>
+      <div class="browse_card_collections">
+        <app-browse-card
+          *ngFor="let sc of browserAll"
+          [bgColor]="sc.bgColor"
+          [textColor]="sc.color"
+          [title]="sc.title"
+        ></app-browse-card>
+      </div>
+    </div>
+  </div>
+</div>

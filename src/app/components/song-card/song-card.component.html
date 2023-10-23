@@ -1,0 +1,9 @@
+<div class="spotify__song-card" (click)="onNavigateToSong()">
+  <div class="spotify_song-card__tumbnail">
+    <img [src]="playlistThumbnail" width="80" alt="thumbail" />
+  </div>
+  <div class="spotify_song-card__title text-left">
+    {{ title }}
+  </div>
+  <div class="spotify_song-card__description">{{ description }}</div>
+</div>
